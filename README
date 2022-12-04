@@ -1,0 +1,68 @@
+# Aqarsas Backend Assignment
+
+The assignment is to implement web services (two endpoints) using Go language. The endpoints will be accessible at /hai/ and /haicounter/ paths using GET method in http protocol. Additionally, you have to write tests (see web_server_test.go) that check your endpoints.
+
+
+- We have provided a sample server code to start with (web_server.go)
+- We have provided data also in an sqlite database file. The database contains a sample list of hai details (neighborhoods) in Saudi Arabia.
+
+1. For the first task Your job to implement /hai/ endpoint that accepts any of the three parameters (id  - hai - city) and return hai data in JSON format. You have to query the database to get the results. Additionally, string parameters (hai-city) may contain part or full expected string, and you have to search the database for a possible list of matches.
+
+
+Usage examples: 
+
+- 127.0.0.1:3333/hai/?id=4
+
+sample Expected result:
+{
+  "result": [
+    {
+      "id": 4,
+      "city": "الرياض",
+      "haiName": "العزيزية"
+    }
+  ]
+}
+
+- 127.0.0.1:3333/hai/?hai=م
+sample expected result: all hais that contains the م letter
+
+- 127.0.0.1:3333/hai/?hai=العارض&city=الرياض
+{
+  "result": [
+    {
+      "id": 9,
+      "city": "الرياض",
+      "haiName": "العارض"
+    }
+  ]
+}
+
+2. For the second task Your job to implement /haicounter/ endpoint that returns list of cities and number of hais in each city. You have to query the database to get the results.
+
+
+Usage example: 
+
+- 127.0.0.1:3333/hailist/
+
+sample Expected result:
+{
+  "result": [
+    {
+      "city": "الرياض",
+      "haicounter": "185"
+    }, ... etc (complete list of cities)
+  ]
+}
+
+
+
+Points that strengthen your work:
+- Good Error handling and testing (dont forget you have to write a test file).
+- Performance, speed, and efficiency. (hint: think about the fastest way possible).
+- Deliver the assignment as early as possible.  
+
+
+The deadline is 1 PM GMT next tuesday (6/12/2022)
+
+Contact us if you have any questions and good luck!
